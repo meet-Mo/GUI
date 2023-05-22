@@ -9,7 +9,7 @@ try
 {
     using namespace Graph_lib;   // our graphics facilities are in Graph_lib
 
-   // Simple_window win(Point(100,100),600,400,"Rectangle");
+    Simple_window win(Point(100,100),600,400,"Rectangle");
 
     Graph_lib::Rectangle rect00(Point(150,100),200,100);
     Graph_lib::Rectangle rect11(Point(50,50),Point(250,150));
