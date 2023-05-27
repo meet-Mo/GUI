@@ -30,7 +30,7 @@ namespace Graph_lib
         // top left corner in xy
         Window(Point xy, int w, int h, const string& title);    
 
-        virtual ~Window() { }
+        ~Window();
 
         int x_max() const { return w; }
         int y_max() const { return h; }

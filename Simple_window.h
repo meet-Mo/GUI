@@ -19,7 +19,6 @@ struct Simple_window : Window {
     Simple_window(Point xy, int w, int h, const string& title);
 
     bool wait_for_button(); // simple event loop
-
 private:
     Button next_button;     // the "next" button
     bool button_pushed;     // implementation detail

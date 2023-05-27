@@ -1,11 +1,14 @@
 #include "Graph.h"
 #include "GUI.h"
 #include "Window.h"
-#include "Simple_window.h" 
+#include "Simple_window.h"
 #include "string.h"
 using namespace Graph_lib;
-void cb_draw_rect(Address, Address pw)/*pw指向当前窗口*/ {
-
+void cb_draw_rect(Address, Address pw) {
+	
+	Graph_lib::Rectangle* rect1= new Graph_lib:: Rectangle(Point(0, 0), Point(100, 100));
+	rect1->set_fill_color(Color::yellow);
+	reference_to<Simple_window>(pw).attach(*rect1);
 }
 void cb1(Address, Address pw) {
 
@@ -19,8 +22,9 @@ void cb3(Address, Address pw) {
 int main() 
 try
 {
-	Simple_window win(Point(200, 200), 600, 400, "test window");
+	Graph_lib::Window win(Point(200, 200), 600, 400, "test window");
 	//Graph_lib::Rectangle rect1(Point(0, 0), Point(100, 100));
+	//rect1.set_fill_color(Color::yellow);
 	//win.attach(rect1);
 	Graph_lib::Button draw_rect(Point(0, 0), 70, 20, "draw_rect", cb_draw_rect);
 	win.attach(draw_rect);
@@ -34,7 +38,10 @@ try
 	//win.attach(command);
 	//Graph_lib::Out_box out(Point(200, 200), 100, 100, "begin");
 	//win.attach(out);
-	win.wait_for_button();
+	/*win.wait_for_button();*/
+	win.end();
+	win.show();
+	return Fl::run();
 }
 catch (const std::exception&)
 {

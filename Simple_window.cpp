@@ -17,7 +17,6 @@ Simple_window::Simple_window(Point xy, int w, int h, const string& title) :
 }
 
 //------------------------------------------------------------------------------
-
 bool Simple_window::wait_for_button()
 // modified event loop:
 // handle all events (as per default), quit when button_pushed becomes true

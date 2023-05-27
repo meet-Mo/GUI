@@ -27,7 +27,19 @@ Window::Window(Point xy, int ww, int hh, const string& title)
 }
 
 //------------------------------------------------------------------------------
+Window::~Window() {
+    vector<Shape*>::iterator p = shapes.begin();
+    for (p; p != shapes.end(); p++) {
+        delete *p;
+    }
 
+}
+
+
+
+
+
+//------------------------------------------------------------------------------
 void Window::init()
 {
     resizable(this);
