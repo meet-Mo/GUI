@@ -28,11 +28,12 @@ Window::Window(Point xy, int ww, int hh, const string& title)
 
 //------------------------------------------------------------------------------
 Window::~Window() {
-    vector<Shape*>::iterator p = shapes.begin();
+   /* vector<Shape*>::iterator p = shapes.begin();
     for (p; p != shapes.end(); p++) {
-        delete *p;
-    }
-
+        detach(*p)
+    }*/
+    for (unsigned int i = shapes.size(); 0 < i; --i)
+            shapes.erase(shapes.begin() + (i - 1));
 }
 
 
