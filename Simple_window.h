@@ -21,11 +21,13 @@ struct Simple_window : Window {
     bool wait_for_button(); // simple event loop
 private:
     Button next_button;     // the "next" button
+    Button draw_rect_button;
     bool button_pushed;     // implementation detail
 
     static void cb_next(Address, Address); // callback for next_button
     void next();            // action to be done when next_button is pressed
-
+    static void cb_draw_rect(Address, Address); 
+    void draw_rect();
 };
 
 //------------------------------------------------------------------------------

@@ -11,9 +11,11 @@
 Simple_window::Simple_window(Point xy, int w, int h, const string& title) :
     Window(xy, w, h, title),
     next_button(Point(x_max() - 70, 0), 70, 20, "Next", cb_next),
+    draw_rect_button(Point(x_max() - 140, 0), 70, 20, "Draw_rect", cb_draw_rect),
     button_pushed(false)
 {
     attach(next_button);
+    attach(draw_rect_button);
 }
 
 //------------------------------------------------------------------------------
@@ -53,3 +55,14 @@ void Simple_window::next()
 }
 
 //------------------------------------------------------------------------------
+
+void Simple_window::cb_draw_rect(Address, Address pw) {
+    reference_to<Simple_window>(pw).draw_rect();
+}
+void Simple_window::draw_rect()
+{
+    Graph_lib::Rectangle* rect1 = new Graph_lib::Rectangle(Point(100, 100), Point(120, 150));
+    rect1->set_fill_color(Color::yellow);
+    attach(*rect1);
+    redraw();
+}
